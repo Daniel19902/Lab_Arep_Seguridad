@@ -7,8 +7,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body onload="conect.init()">
-    <h1> lOBy</h1>
+    <h1> Servicio para sumar dos numeros</h1>
     <p id="fraces"> hhh</p>
+    <input id="uno" type="number">
+    <input id="dos" type="number">
+    <button id="sumar" onclick="conect.sumar($('#uno').val(), $('#dos').val())">Sumar</button>
+    <div id="respuesta"> respuesta </div>
 
 </body>
 </html>

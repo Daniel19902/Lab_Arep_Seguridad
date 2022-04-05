@@ -28,6 +28,11 @@ public class UserRepository {
         return "";
     }
 
+    public Boolean verificarToken(String token){
+        System.out.println(userHashMap.get(encriptar.getInfoToken(token)).getToken()+"token user");
+        return userHashMap.get(encriptar.getInfoToken(token)).getToken().equals(token);
+    }
+
     public String getInfoLoby(String token){
         return userHashMap.get(encriptar.getInfoToken(token)).getFrace();
     }

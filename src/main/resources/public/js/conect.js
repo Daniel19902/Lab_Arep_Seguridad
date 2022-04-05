@@ -15,7 +15,7 @@ var conect = (function (){
         },
 
         conectarJava: function (user, password){
-            fetch("https://localhost:4567/login",{
+            fetch("https://ec2-54-173-20-95.compute-1.amazonaws.com:45647/login",{
                 method: 'POST',
                 body: JSON.stringify({ userName:user, password:password}),
             })
@@ -23,7 +23,7 @@ var conect = (function (){
                 console.log(data)
                 if(data != "error de autenticacion"){
                     localStorage.setItem('Token', data);
-                    fetch("https://localhost:4567/loby", requestOptions).then(response => response.json())
+                    fetch("https://ec2-54-173-20-95.compute-1.amazonaws.com:45647/loby", requestOptions).then(response => response.json())
                     .then(data => {
                         console.log(data)
                         localStorage.setItem('Data', data);
@@ -32,6 +32,18 @@ var conect = (function (){
                 }
 
             })
+        },
+
+        sumar : function(uno, dos){
+            console.log(uno, dos)
+            fetch("https://ec2-54-173-20-95.compute-1.amazonaws.com:45647/sumar/"+uno+"/"+dos, requestOptions).then(response => response.json())
+            .then(data => {
+
+            $('#respuesta').html(data)
+
+            })
+
+
         }
 
 

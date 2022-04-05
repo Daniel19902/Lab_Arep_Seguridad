@@ -67,7 +67,7 @@ public class Encripto {
 
     public String getInfoToken(String token) {
         if(token == null){
-            return null;
+            return "";
         }
 
         Key key = new HmacKey(Data.KEY.getBytes(StandardCharsets.UTF_8));
