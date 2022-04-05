@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="LoginService" />
+        <module name="Lab_Arep_Seguridad" />
       </profile>
     </annotationProcessing>
   </component>

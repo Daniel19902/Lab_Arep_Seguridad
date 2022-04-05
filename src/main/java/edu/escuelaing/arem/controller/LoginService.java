@@ -4,6 +4,9 @@ import edu.escuelaing.arem.model.User;
 import edu.escuelaing.arem.repository.UserRepository;
 import org.json.JSONObject;
 import spark.Response;
+
+import java.util.Objects;
+
 import static spark.Spark.*;
 public class LoginService
 {
@@ -15,17 +18,24 @@ public class LoginService
         secure("keystrokes/keystore.p12","123456",  null, null);
         port(getPort());
         staticFiles.location("public");
-        get("/hello/:user/:password", (req, res) -> gson.toJson(req.params(":user")+req.params(":password")));
+        //get("/hello/:user/:password", (req, res) -> gson.toJson(req.params(":user")+req.params(":password")));
         post("/login", (req, res) -> verificar(req.body()));
+        get("/loby", (req, res) -> infoLoby(req.headers("Authorization")));
     }
 
     public static String verificar(String user){
         System.out.println(user);
         User s = gson.fromJson(user, User.class);
-        if(userRepository.getUser(s.getUserName())){
-            return "";
+        String auth = userRepository.getUser(s.getUserName(), s.getPassword());
+        if(!Objects.equals(auth, "")){
+            return gson.toJson(auth);
         }
-        return "";
+        return gson.toJson("error de autenticacion");
+    }
+
+    public static String infoLoby(String user){
+        System.out.println(user + "  token");
+        return gson.toJson(userRepository.getInfoLoby(user));
     }
 
     public static int getPort(){

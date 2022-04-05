@@ -4,22 +4,31 @@ package edu.escuelaing.arem.repository;
 import edu.escuelaing.arem.Encriptar.Encripto;
 import edu.escuelaing.arem.model.User;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class UserRepository {
 
     private final HashMap<String, User> userHashMap = new HashMap<>();
+    private final Encripto encriptar = new Encripto();
 
     public UserRepository() {
-        Encripto encripto = new Encripto();
-        userHashMap.put("Daniel", new User("Daniel", encripto.encriptar("123456")));
+
+        userHashMap.put("Daniel", new User("Daniel", encriptar.encriptar("123456")));
         System.out.println(userHashMap.get("Daniel").getPassword());
     }
 
-    public Boolean getUser(String userName){
+    public String getUser(String userName,String password){
         if(userHashMap.containsKey(userName)){
-            return true;
+            if(Objects.equals(encriptar.encriptar(password), userHashMap.get(userName).getPassword())){
+                userHashMap.get(userName).setToken(encriptar.generateToken(userHashMap.get(userName)));
+                return userHashMap.get(userName).getToken();
+            }
         }
-        return false;
+        return "";
+    }
+
+    public String getInfoLoby(String token){
+        return userHashMap.get(encriptar.getInfoToken(token)).getFrace();
     }
 }
