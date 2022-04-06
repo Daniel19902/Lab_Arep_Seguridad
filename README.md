@@ -3,8 +3,9 @@
 
 ## Descripcion
 
+Repositorio servicio que consume el login [Servicio](https://github.com/Daniel19902/Lab_Arep_Api_Seguridad.git)
 
-Video demostracion AWS [Video AWS](https://github.com/Daniel19902)
+Video demostracion AWS [Video AWS](https://youtu.be/h6cFayXmqZE)
 
 Laboratorio en donde nos permite de manera segura realizar peticion atravez 
 del protocolo HTTPS a una aplicacion web. El laboratorio nos permite hacer login
