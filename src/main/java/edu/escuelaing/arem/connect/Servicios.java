@@ -11,9 +11,9 @@ public class Servicios {
     private Gson gson = new Gson();
 
     public String sumarServicio(String uno, String dos){
-        System.setProperty("javax.net.ssl.trustStore", "keystrokes/myTrustStore");
+        System.setProperty("javax.net.ssl.trustStore", "keystrokes/myTrustStoreAws");
         System.setProperty("javax.net.ssl.trustStorePassword", "123456");
-        String url = "https://ec2-44-201-210-16.compute-1.amazonaws.com:4568/sumardos/"+uno+"/"+dos;
+        String url = "https://ec2-3-83-119-111.compute-1.amazonaws.com:4568/sumardos/"+uno+"/"+dos;
 
         try {
             System.out.println(url);

@@ -15,7 +15,7 @@ public class LoginService
 
     public static void main( String[] args )
     {
-        secure("keystrokes/keystore.p12","123456",  "keystrokes/myTrustStoreApi", "123456");
+        secure("keystrokes/keystoreaws.p12","123456",  "keystrokes/myTrustStoreApiaws", "123456");
         port(getPort());
         staticFiles.location("public");
         //get("/hello/:user/:password", (req, res) -> gson.toJson(req.params(":user")+req.params(":password")));

@@ -1,6 +1,6 @@
-edu/escuelaing/arem/model/User.class
-edu/escuelaing/arem/repository/UserRepository.class
-edu/escuelaing/arem/Encriptar/Encripto.class
-edu/escuelaing/arem/controller/LoginService.class
-edu/escuelaing/arem/connect/Servicios.class
-edu/escuelaing/arem/Encriptar/Data.class
+edu\escuelaing\arem\model\User.class
+edu\escuelaing\arem\controller\LoginService.class
+edu\escuelaing\arem\connect\Servicios.class
+edu\escuelaing\arem\Encriptar\Data.class
+edu\escuelaing\arem\repository\UserRepository.class
+edu\escuelaing\arem\Encriptar\Encripto.class
